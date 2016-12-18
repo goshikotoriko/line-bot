@@ -68,7 +68,7 @@ class Route
                 }
                 
                 
-                $replyText = $event->getText()+"やねん";
+                $replyText = $event->getText(""+"やねん");
                 $logger->info('Reply text: ' . $replyText);
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
