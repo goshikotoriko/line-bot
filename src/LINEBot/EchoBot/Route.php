@@ -60,12 +60,19 @@ class Route
                     $logger->info('Non message event has come');
                     continue;
                 }
-
+              
+      
                 if (!($event instanceof TextMessage)) {
                     $logger->info('Non text message has come');
                     continue;
                 }
-
+                
+                
+                 if (!($event instanceof StickerMessage)) {
+                    $replyText = "すてっかーやねん";
+                    continue;
+                }
+                
                 $replyText = $event->getText();
                 $logger->info('Reply text: ' . $replyText);
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
