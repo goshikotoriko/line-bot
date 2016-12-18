@@ -68,12 +68,7 @@ class Route
                 }
                 
                 
-                 if (!($event instanceof StickerMessage)) {
-                    $replyText = "すてっかーやねん";
-                    continue;
-                }
-                
-                $replyText = $event->getText();
+                $replyText = $event->getText()+"やねん";
                 $logger->info('Reply text: ' . $replyText);
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
